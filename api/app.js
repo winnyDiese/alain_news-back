@@ -15,4 +15,7 @@ mongoose.connect(process.env.MONGO_URL)
     .then(()=>console.log('MongoDB connected !'))
 
 app.use('/api/posts', postRoutes)
-app.listen(5000, ()=> console.log('Server started on port 5000'))
+
+// app.listen(5000, ()=> console.log('Server started on port 5000'))
+
+module.exports = app
