@@ -10,10 +10,10 @@ const postRoutes = require('./routes/postRoutes')
 
 const app = express()
 app.use(cors({
-  origin: 'https://alain-news-front.vercel.app/',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // si tu gères les cookies / sessions
-}))
+    origin: 'https://alain-news-front.vercel.app', // ❌ enlève le slash final ici
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+}));
 app.use(express.json())
 
 mongoose.connect(process.env.MONGO_URL)
