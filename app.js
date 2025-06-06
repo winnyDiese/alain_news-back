@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const connectDB = require('./lib/db')
+// const connectDB = require('./lib/db')
 
 require('dotenv').config()
 
@@ -15,11 +15,11 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// mongoose.connect(process.env.MONGO_URL)
-//     .then(()=>console.log('MongoDB connected !'))
+mongoose.connect(process.env.MONGO_URL)
+    .then(()=>console.log('MongoDB connected !'))
 
 // connection to DB
-connectDB()
+// connectDB()
 
 app.use('/api/posts', postRoutes)
 
