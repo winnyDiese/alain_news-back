@@ -15,8 +15,11 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect(process.env.MONGO_URL)
-    .then(()=>console.log('MongoDB connected !'))
+// mongoose.connect(process.env.MONGO_URL)
+//     .then(()=>console.log('MongoDB connected !'))
+
+// connection to DB
+connectDB()
 
 app.use('/api/posts', postRoutes)
 
