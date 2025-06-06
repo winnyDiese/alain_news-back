@@ -6,9 +6,10 @@ require('dotenv').config()
 const postRoutes = require('./routes/postRoutes')
 
 const app = express()
-app.use(cors({
-  origin: 'http://localhost:3000'
-}))
+// app.use(cors({
+//   origin: 'http://localhost:3000'
+// }))
+app.use(cors())
 app.use(express.json())
 
 mongoose.connect(process.env.MONGO_URL)
