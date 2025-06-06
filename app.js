@@ -10,9 +10,9 @@ const postRoutes = require('./routes/postRoutes')
 
 const app = express()
 app.use(cors({
-//   origin: 'http://localhost:3000'
-  origin: 'https://alain-news-front.vercel.app/'
-  
+  origin: 'https://alain-news-front.vercel.app/',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, // si tu gères les cookies / sessions
 }))
 app.use(express.json())
 
