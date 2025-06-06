@@ -10,7 +10,9 @@ const postRoutes = require('./routes/postRoutes')
 
 const app = express()
 app.use(cors({
-  origin: 'http://localhost:3000'
+//   origin: 'http://localhost:3000'
+  origin: 'https://alain-news-front.vercel.app/'
+  
 }))
 app.use(express.json())
 
