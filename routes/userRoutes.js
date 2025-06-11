@@ -1,5 +1,5 @@
 const express = require('express')
-const { User } = require('../models/Post') // ou '../models' si tu as suivi l'export multiple
+const User = require('../models/Post') // ou '../models' si tu as suivi l'export multiple
 const router = express.Router()
 
 // GET tous les utilisateurs
