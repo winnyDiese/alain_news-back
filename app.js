@@ -8,6 +8,7 @@ require('dotenv').config()
 
 const postRoutes = require('./routes/postRoutes')
 const userRoutes = require('./routes/userRoutes')
+const loginRoutes = require('./routes/auth')
 
 const app = express()
 app.use(cors({
@@ -25,6 +26,7 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use('/api/posts', postRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/auth', loginRoutes)
 
 app.listen(5000, ()=> console.log('Server started on port 5000'))
 // if (require.main === module) {
