@@ -93,5 +93,26 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Supprimer un commentaire spécifique d'un post
+router.delete('/:postId/comments/:commentId', async (req, res) => {
+  const { postId, commentId } = req.params;
+
+  try {
+    const post = await Post.findById(postId);
+
+    if (!post) {
+      return res.status(404).json({ message: 'Post non trouvé' });
+    }
+
+    // Supprimer le commentaire du tableau
+    post.comments = post.comments.filter(comment => comment._id.toString() !== commentId);
+    
+    await post.save();
+
+    res.status(200).json({ message: 'Commentaire supprimé avec succès' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 module.exports = router
