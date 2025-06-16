@@ -78,5 +78,20 @@ router.get('/:id/like', async (req,res)=>{
     }
 })
 
+// Supprimer un post (et tous ses commentaires automatiquement car ils sont embarqués)
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedPost = await Post.findByIdAndDelete(req.params.id);
+
+    if (!deletedPost) {
+      return res.status(404).json({ message: 'Post non trouvé' });
+    }
+
+    res.status(200).json({ message: 'Post supprimé avec succès' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 module.exports = router
