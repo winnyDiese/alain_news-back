@@ -14,10 +14,12 @@ const loginRoutes = require('./routes/auth')
 
 const app = express()
 app.use(cors({
-    origin: 'https://alain-news-front.vercel.app', // ❌ enlève le slash final ici
+    origin: 'https://alain-news-front.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
+    allowedHeaders: ['Content-Type'],
 }));
+
 app.use(express.json())
 
 mongoose.connect(process.env.MONGO_URL)
